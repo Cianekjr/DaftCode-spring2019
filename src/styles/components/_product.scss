@@ -1,0 +1,51 @@
+.products__item {
+  @include size(280px, 260px);
+  position: relative;
+  box-shadow: 0 0 10px $dark-gray;
+  margin-bottom: 15px;
+}
+
+.products__link {
+  @include position(absolute, 50%, auto, auto, 50%);
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  text-shadow: 0 0 3px #000;
+  text-align: center;
+}
+
+.bijou,
+.negron,
+.mojito,
+.rattlesnake,
+.eggnogg,
+.zinger {
+  background-position: center;
+  background-size: cover;
+}
+
+.bijou {
+  background-image: url(../img/bijou.jpg);
+}
+
+.negron {
+  background-image: url(../img/negron.jpg);
+}
+
+.mojito {
+  background-image: url(../img/mojito.jpg);
+}
+
+.rattlesnake {
+  background-image: url(../img/rattlesnake.jpg);
+}
+
+.eggnogg {
+  background-image: url(../img/eggnogg.jpg);
+}
+
+.zinger {
+  background-image: url(../img/zinger.jpg);
+}

@@ -1,15 +1,22 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname)
+    path: path.resolve(__dirname, "dist")
   },
-  mode: "production", // development/production version
+  mode: "development", // development/production version
   watch: true, // watch for changes in any of the resolved files
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "src/index.html"
+    }),
+    new MiniCssExtractPlugin()
+  ],
   module: {
     rules: [
       {
@@ -23,8 +30,17 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        test: /\.s(a|c)ss$/,
+        use: [
+          isProduction ? MiniCssExtractPlugin.loader : { loader: "style-loader", options: { sourceMap: true } },
+          { loader: "css-loader", options: { sourceMap: isProduction } },
+          { loader: "postcss-loader", options: { sourceMap: isProduction } },
+          { loader: "sass-loader", options: { sourceMap: isProduction } }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ["file-loader"]
       }
     ]
   }

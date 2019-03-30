@@ -1,0 +1,35 @@
+.card {
+  @include flex(column, center, initial);
+  width: 92%;
+  flex-grow: 1;
+  margin-top: 5vh;
+  background-color: $blue-card;
+  box-shadow: 0 0 15px #bbb;
+  position: relative;
+}
+
+.card__logo {
+  @include position(absolute, 0, auto, auto, 30px);
+  transform: translateY(-50%);
+  border: 2px solid $light-gray;
+}
+
+.logo__title {
+  font-size: 20px;
+  padding: 8px 24px;
+  color: $light-gray;
+}
+
+// products
+
+.products {
+  @include size(70%, 60vh);
+  margin: 30px auto 0 auto;
+  overflow-y: auto;
+}
+
+.products__list {
+  @include flex(row, space-between, space-between);
+  @include size(100%, 100%);
+  flex-wrap: wrap;
+}

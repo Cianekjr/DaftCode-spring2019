@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+  width: 6px;
+  margin-left: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $blue-card;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aaa;
+  border-radius: 5px;
+  margin: 40px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
