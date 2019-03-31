@@ -7,13 +7,13 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname)
   },
   mode: "development", // development/production version
   watch: true, // watch for changes in any of the resolved files
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: "src/main.html"
     }),
     new MiniCssExtractPlugin()
   ],
