@@ -1,5 +1,6 @@
 .nav__list {
   @include flex(row, space-between);
+  flex-wrap: wrap;
   width: 70%;
   margin: 0 auto;
 }
@@ -30,5 +31,27 @@
       opacity: 1;
       transform: translateY(8px);
     }
+  }
+}
+
+//hamburger menu
+@media only screen and (max-width: 1000px) {
+  .card__nav {
+    @include position(absolute, 0, auto, auto, 0);
+    width: 200px;
+    z-index: 1;
+    background-color: $color-hamburger;
+    transform: translateX(-150%);
+    transition: 0.6s;
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  .nav__list {
+    flex-direction: column;
+  }
+  .nav__link {
+    color: $color-white;
+    opacity: 1;
   }
 }
